@@ -1,0 +1,104 @@
+Slide 1: Title Slide
+
+**Title:** Google Play Store Data Analysis
+**Subtitle:** Complete EDA & Feature Engineering
+**Extras:** Your name, date, logo/image (optional)
+
+Slide 2: Agenda
+
+1. Data Cleaning
+2. Exploratory Data Analysis (EDA)
+3. Advanced Feature Engineering
+4. Key Insights & Summary
+
+Slide 3: Day 1 – Data Cleaning
+
+Key Points:
+
+* Dataset loaded: `cleaned_playstore.csv`
+* Missing values handled: `Rating`, `Type`, `Content Rating`, `Current Ver`, `Android Ver`
+* Duplicates removed based on `App`
+* Numeric columns cleaned: `Installs`, `Price`, `Reviews`
+* App `Size` converted to MB
+* Outliers removed: `Rating <= 5`, `Price >= 0`
+* Added feature: `isPaid`
+
+Visual Suggestion: Table with sample before/after cleaning
+
+Slide 4: Dataset Overview
+
+Key Stats:
+
+* Total apps: *len(df)*
+* Categories: *df['Category'].nunique()*
+* Missing values handled
+* Average Rating: ~ *df['Rating'].mean()*
+
+Visual Suggestion: Bar chart of top 10 categories
+
+Slide 5: App Categories & Ratings
+
+* Most Popular Category: *{top_cats.index[0]}*
+* Rating Distribution: Average rating: *{df['Rating'].mean():.2f}*
+* Free vs Paid: Paid apps slightly higher ratings
+
+Visuals:
+
+* Bar chart: Top categories
+* Histogram: Rating distribution
+* Boxplot: Ratings by Free/Paid
+
+Slide 6: Installs Analysis
+
+* Top categories by total installs: Communication, Social, Tools
+* Reviews ↔ Installs: Strong correlation
+
+Visuals:
+
+* Bar chart: Top 10 categories by installs
+* Correlation heatmap: Rating, Reviews, Installs, Price, isPaid
+
+Slide 7: Paid Apps Analysis
+
+* Total paid apps: *len(paid_df)* (~*{len(paid_df)/len(df)*100:.1f}%*)
+* Average price: ~$*{paid_df['Price'].mean():.2f}*
+* Price < $50 distribution
+
+Visual: Histogram of paid app prices
+
+Slide 8: Feature Engineering
+
+* Log transformation: `log_installs = np.log1p(Installs)`
+* Rating categories: Low, Medium, High
+* Pairplot: Key metrics colored by Paid/Free
+
+Visuals:
+
+* Histogram: log-transformed installs
+* Bar chart: apps by rating category
+* Pairplot: Ratings, Reviews, Installs, Price
+
+Slide 9: Correlation Analysis
+
+* Reviews ↔ Installs: Strongest correlation
+* Price ↔ Rating: Weak correlation
+* Log-transformed installs improve insight
+
+Visual: Updated correlation heatmap
+
+Slide 10: Final Insights
+
+1. Category Insights: Communication & Social dominate
+2. Rating Insights: Paid apps slightly higher rating
+3. Install Insights: Reviews correlate with installs
+4. Pricing Insights: Most paid apps < $50, weak correlation with rating
+5. Feature Engineering: Log-transformed installs & rating categories
+
+Visual Suggestion: Icons or small charts summarizing each point
+
+Slide 11: Next Steps
+
+* Upload cleaned dataset to Power BI
+* Build dashboards: Categories, Ratings, Revenue potential
+* Monitor app performance trends
+
